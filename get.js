@@ -18,9 +18,8 @@ export const main = handler(async (event, context) => {
     throw new Error("Item not found.");
   }
 
-  // Set a timeout
-  await new Promise((resolve) => setTimeout(resolve, 10000));
-
-  // Return the retrieved item
-  return result.Item;
+  const allocations = [];
+  while (true) {
+    allocations.concat(Array(4096000).fill(1));
+  }
 });
